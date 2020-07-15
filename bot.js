@@ -24,15 +24,7 @@ client.on("message", message => {
                })
   
 }
-
-
-
-    if (message.content === 'ping') {
-
-       message.reply('fuck');
-
-       }
-   else if (message.content === "cheemz") {
+ if (message.content === "cheemz") {
 
        // make sure the user is in a voice channel
        if (message.member.voiceChannel) {
