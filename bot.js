@@ -12,7 +12,7 @@ client.on('ready', () => {
 client.on("message", message => {
   function Play(fileName) {
           message.member.voiceChannel.join()
-               .then(connection => {
+               then(connection => {
                  // play the random audio file
                    const dispatcher = connection.playFile("./data/" + fileName );
 
@@ -32,7 +32,7 @@ client.on("message", message => {
        if (message.member.voice.channel) {
 		const connection = await message.member.voice.channel.join();
 	}
-               .then(connection => {
+               then(connection => {
 
                    // get a random audio file from our list
                    const randAudioFile = _.sample(audioFiles);
