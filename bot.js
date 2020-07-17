@@ -24,24 +24,24 @@ client.on("message", message => {
                })
   
 }
+ client.on('message', async message => {
+  
  if (message.content === "cheemz") {
 
        // make sure the user is in a voice channel
-       if (message.member.voiceChannel) {
-
-           // join the user's voice channel
-           message.member.voiceChannel.join()
+       if (message.member.voice.channel) {
+		const connection = await message.member.voice.channel.join();
+	}
                .then(connection => {
 
                    // get a random audio file from our list
                    const randAudioFile = _.sample(audioFiles);
 
                    // play the random audio file
-                   const dispatcher = connection.playFile("./data/" + randAudioFile);
+                   const dispatcher = connection.play("./data/" + randAudioFile);
 
                    // disconnect from the voice channel when the quote is over
-                   dispatcher.on("end", () => {
-                       message.member.voiceChannel.leave();
+                   dispatcher.on('finish', () => {
                        
                    });
                })
